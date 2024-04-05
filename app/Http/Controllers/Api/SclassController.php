@@ -26,5 +26,22 @@ class SclassController extends Controller
 
   }
 
+  public function Edit($id){
+    $sclass = Sclass::findOrFail($id);
+    return response()->json($sclass);
+  }
+
+  public function Update(Request $request, $id){
+    $sclass = Sclass::findOrFail($id)->update([
+      'class_name' => $request->class_name,
+    ]);
+    return response('Student Class Updated successfully');
+  }
+
+  public function Delete($id){
+    $sclass = Sclass::findOrFail($id)->delete();
+    return response('Student Class Deleted successfully');
+  }
+
 
 }

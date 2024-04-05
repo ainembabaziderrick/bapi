@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SclassController;
+use App\Http\Controllers\Api\SubjectController;
 
 
 
@@ -10,5 +11,19 @@ use App\Http\Controllers\Api\SclassController;
 //     return $request->user();
 // });
 
+//Student Class Route
+
 Route::get('/class',[SclassController::class, 'Index']);
 Route::post('/class/store',[SclassController::class, 'Store']);
+Route::get('/class/edit/{id}',[SclassController::class, 'Edit']);
+Route::post('/class/update/{id}',[SclassController::class, 'Update']);
+Route::get('/class/delete/{id}',[SclassController::class, 'Delete']);
+
+//Student Subject Routes
+
+
+Route::get('/subject',[SubjectController::class, 'Index']);
+Route::post('/subject/store',[SubjectController::class, 'Store']);
+Route::get('/subject/edit/{id}',[SubjectController::class, 'Edit']);
+Route::post('/subject/update/{id}',[SubjectController::class, 'Update']);
+Route::get('/subject/delete/{id}',[SubjectController::class, 'Delete']);
